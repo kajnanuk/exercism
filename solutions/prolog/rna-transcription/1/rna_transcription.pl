@@ -1,0 +1,12 @@
+rna_transcription(Dna, Rna):-
+    string_chars(Dna, DnaL),
+    helper_rna_transcription(DnaL, RnaL),
+    string_chars(Rna, RnaL).
+helper_rna_transcription('C', 'G').
+helper_rna_transcription('G', 'C').
+helper_rna_transcription('T', 'A').
+helper_rna_transcription('A', 'U').
+helper_rna_transcription([], []).
+helper_rna_transcription([DnaLH|DnaLT], [FirstR|RestR]):-
+    helper_rna_transcription(DnaLH, FirstR),
+    helper_rna_transcription(DnaLT, RestR).
